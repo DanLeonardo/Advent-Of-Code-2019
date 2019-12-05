@@ -12,20 +12,23 @@ def execute_opcode(position, program):
 
     op_code = int(operation[-2:]) if len(operation) > 1 else int(operation[0])
     param_modes = [int(mode) for mode in str(operation[:-2])]
+
     param_modes.reverse()
+    while len(param_modes) < 2:
+        param_modes.append(0)
 
     # print(op_code)
     if op_code == 1:
         # Add
-        if len(param_modes) < 1 or param_modes[0] == 0:
-            param_1 = program[program[position+1]]
-        else:
-            param_1 = program[position+1]
+        if param_modes[0] == 0:
+            param_1 = int(program[program[position+1]])
+        elif param_modes[0] == 1:
+            param_1 = int(program[position+1])
 
-        if len(param_modes) < 2 or param_modes[1] == 0:
-            param_2 = program[program[position+2]]
-        else:
-            param_2 = program[position+2]
+        if param_modes[1] == 0:
+            param_2 = int(program[program[position+2]])
+        elif param_modes[1] == 1:
+            param_2 = int(program[position+2])
 
         param_3 = program[position+3]
 
@@ -33,15 +36,15 @@ def execute_opcode(position, program):
         return 4
     elif op_code == 2:
         # Multiply
-        if len(param_modes) < 1 or param_modes[0] == 0:
-            param_1 = program[program[position+1]]
-        else:
-            param_1 = program[position+1]
+        if param_modes[0] == 0:
+            param_1 = int(program[program[position+1]])
+        elif param_modes[0] == 1:
+            param_1 = int(program[position+1])
 
-        if len(param_modes) < 2 or param_modes[1] == 0:
-            param_2 = program[program[position+2]]
-        else:
-            param_2 = program[position+2]
+        if param_modes[1] == 0:
+            param_2 = int(program[program[position+2]])
+        elif param_modes[1] == 1:
+            param_2 = int(program[position+2])
 
         param_3 = program[position+3]
 

@@ -8,10 +8,14 @@ def load_program(file_name):
 
 def execute_opcode(position, program):
     operation = str(program[position])
-    print('position-%d' % position)
+    # print('position-%d' % position)
 
     op_code = int(operation[-2:]) if len(operation) > 1 else int(operation[0])
     param_modes = [int(mode) for mode in str(operation[:-2])]
+
+    asdf = operation[-2:] if len(operation) > 1 else operation[0]
+    # print('%s\t%s' % (asdf, param_modes))
+
 
     param_modes.reverse()
     while len(param_modes) < 2:
@@ -58,9 +62,12 @@ def execute_opcode(position, program):
         return 2
     elif op_code == 4:
         # Output
-        address = program[position+1]
-        # print(program[address])
-        print('PRINT: %d' % program[address])
+        if param_modes[0] == 0:
+            value = int(program[program[position+1]])
+        elif param_modes[0] == 1:
+            value = int(program[position+1])
+        # address = program[position+1]
+        print('PRINT: %d' % value)
         return 2
     elif op_code == 99:
         # Finish
