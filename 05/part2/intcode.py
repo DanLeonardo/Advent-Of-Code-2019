@@ -62,6 +62,18 @@ def execute_opcode(position, program):
         # print(program[address])
         print('PRINT: %d' % program[address])
         return 2
+    elif op_code == 5:
+        # Jump If True
+        pass
+    elif op_code == 6:
+        # Jump If False
+        pass
+    elif op_code == 7:
+        # Less Than
+        pass
+    elif op_code == 8:
+        # Equals
+        pass
     elif op_code == 99:
         # Finish
         return 99
