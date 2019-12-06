@@ -41,7 +41,7 @@ class IntcodeComputer:
 
         # print('%s: %s' % (position, operation))
         # print('-%s' % param_modes)
-        
+
         # Execute opcode
         if op_code == 1:
             # Addition
@@ -74,16 +74,46 @@ class IntcodeComputer:
             return 2
         elif op_code == 5:
             # Jump If True
-            pass
+            param_1 = self.get_parameter(position+1, param_modes[0])
+            param_2 = self.get_parameter(position+2, param_modes[1])
+
+            if param_1 is not 0:
+                self.jump_to(param_2)
+                return 0
+            else:
+                return 3
         elif op_code == 6:
             # Jump If False
-            pass
+            param_1 = self.get_parameter(position+1, param_modes[0])
+            param_2 = self.get_parameter(position+2, param_modes[1])
+
+            if param_1 is 0:
+                self.jump_to(param_2)
+                return 0
+            else:
+                return 3
         elif op_code == 7:
             # Less Than
-            pass
+            param_1 = self.get_parameter(position+1, param_modes[0])
+            param_2 = self.get_parameter(position+2, param_modes[1])
+            param_3 = self.get_parameter(position+3, 1)
+
+            if param_1 < param_2:
+                self.set_value(param_3, 1)
+            else:
+                self.set_value(param_3, 0)
+            return 4
         elif op_code == 8:
             # Equal
-            pass
+            param_1 = self.get_parameter(position+1, param_modes[0])
+            param_2 = self.get_parameter(position+2, param_modes[1])
+            param_3 = self.get_parameter(position+3, 1)
+
+            if param_1 == param_2:
+                self.set_value(param_3, 1)
+            else:
+                self.set_value(param_3, 0)
+            return 4
         elif op_code == 99:
             # Finish
             return 99
