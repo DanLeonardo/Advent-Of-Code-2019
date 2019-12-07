@@ -4,8 +4,11 @@ class IntcodeComputer:
     def __init__(self, file_name=None, echo=True):
         self.position = 0
         self.last_value = None
+        self.output_values = []
         self.input_list = []
         self.echo = echo
+        self.finished = False
+        self.paused = False
 
         if file_name is None:
             self.load_program('./input.txt')
@@ -23,21 +26,28 @@ class IntcodeComputer:
         if self.program is None:
             return
 
-        self.position = 0
-        finished = False
-        while not finished:
+        self.paused = False
+
+        while not self.finished and not self.paused:
             value = self.execute_opcode(self.position)
 
             if value == 99:
-                finished = True
+                self.finished = True
             elif value == -1:
                 print('Error: Stopping Program')
-                finished = True
+                self.finished = True
             else:
                 self.position += value
 
-    def set_input(self, input_list):
-        self.input_list = input_list
+    def pause_program(self):
+        # print('Pausing program at position %d' % self.position)
+        self.paused = True
+
+    def set_input(self, input):
+        self.input_list = input
+
+    def add_input(self, input):
+        self.input_list.extend(input)
 
     def execute_opcode(self, position):
         # Read full opcode
@@ -73,10 +83,14 @@ class IntcodeComputer:
         elif op_code == 3:
             # Input
             param_1 = self.get_parameter(position+1, 1)
+            # Only run the program while there is input
+            # If there is not input pause the program and resume it after input
+            # is available
             if len(self.input_list) > 0:
                 value = self.input_list.pop(0)
             else:
-                value = input()
+                self.pause_program()
+                return 0
 
             self.set_value(param_1, value)
             # print('%s -> %s' % (value, param_1))
@@ -84,7 +98,9 @@ class IntcodeComputer:
         elif op_code == 4:
             # Output
             param_1 = self.get_parameter(position+1, param_modes[0])
+            # track output values
             self.last_value = param_1
+            self.output_values.append(param_1)
             # print('%s -> out' % param_1)
             if self.echo:
                 print('PRINT-%d' % param_1)
@@ -167,24 +183,47 @@ class IntcodeComputer:
     def get_last_value(self):
         return self.last_value
 
+    def get_output_values(self):
+        output = self.output_values.copy()
+        self.output_values.clear()
+        return output
+
 if __name__ == '__main__':
     input_file = './input.txt'
     test1_file = './test1.txt'
+    test2_file = './test2.txt'
 
     greatest_value = 0
-    possible_sequences = list(permutations(range(0, 5)))
-    for sequence in possible_sequences:
-        last_value = 0
-        # print(sequence)
-        for i in range(0, len(sequence)):
-            # print('Running amp %d with input [%s, %s]' % (i, sequence[i], last_value))
-            amp = IntcodeComputer(input_file, echo=False)
-            amp.set_input([sequence[i], last_value])
-            amp.execute_program()
-            last_value = amp.get_last_value()
-            # print('Amp %d output %d' % (i, last_value))
-        # print(last_value)
+    greatest_sequence = None
+
+    sequences = list(permutations(range(5,10)))
+    for sequence in sequences:
+        amp_list = [IntcodeComputer(input_file, echo=False) for i in range(0, 5)]
+        # Set initial inputs
+        # amp 0 gets 2 initial inputs, the remainder get their second input from
+        # the previous amp
+        amp_list[0].set_input([sequence[0], 0])
+        amp_list[1].set_input([sequence[1]])
+        amp_list[2].set_input([sequence[2]])
+        amp_list[3].set_input([sequence[3]])
+        amp_list[4].set_input([sequence[4]])
+
+        while not amp_list[-1].finished:
+            for i,amp in enumerate(amp_list):
+                amp.execute_program()
+                values = amp.get_output_values()
+                # print('%d return %s' % (i, values))
+
+                if i < len(amp_list)-1:
+                    amp_list[i+1].add_input(values)
+                else:
+                    amp_list[0].add_input(values)
+
+        last_value = amp_list[-1].get_last_value()
+
         if last_value > greatest_value:
             greatest_value = last_value
+            greatest_sequence = sequence
 
+    print(greatest_sequence)
     print(greatest_value)
