@@ -3,6 +3,7 @@ from itertools import permutations
 class IntcodeComputer:
     def __init__(self, file_name=None, echo=True):
         self.position = 0
+        self.rel_base = 0
         self.last_value = None
         self.output_values = []
         self.input_list = []
@@ -17,7 +18,7 @@ class IntcodeComputer:
 
     def load_program(self, file_name):
         with open(file_name) as file:
-            self.program = file.readline()
+            self.program = file.read()
             self.program = self.program.rstrip('\n')
             self.program = self.program.split(',')
             self.program = [int(op) for op in self.program]
@@ -68,7 +69,7 @@ class IntcodeComputer:
             # Addition
             param_1 = self.get_parameter(position+1, param_modes[0])
             param_2 = self.get_parameter(position+2, param_modes[1])
-            param_3 = self.get_parameter(position+3, 1)
+            param_3 = self.get_parameter_position(position+3, param_modes[2])
             # print('%s + %s = %s -> %s' % (param_1, param_2, param_1+param_2, param_3))
             self.set_value(param_3, param_1 + param_2)
             return 4
@@ -76,13 +77,13 @@ class IntcodeComputer:
             # Multiplication
             param_1 = self.get_parameter(position+1, param_modes[0])
             param_2 = self.get_parameter(position+2, param_modes[1])
-            param_3 = self.get_parameter(position+3, 1)
+            param_3 = self.get_parameter_position(position+3, param_modes[2])
             self.set_value(param_3, param_1 * param_2)
             # print('%s * %s = %s -> %s' % (param_1, param_2, param_1*param_2, param_3))
             return 4
         elif op_code == 3:
             # Input
-            param_1 = self.get_parameter(position+1, 1)
+            param_1 = self.get_parameter_position(position+1, param_modes[0])
             # Only run the program while there is input
             # If there is not input pause the program and resume it after input
             # is available
@@ -129,7 +130,7 @@ class IntcodeComputer:
             # Less Than
             param_1 = self.get_parameter(position+1, param_modes[0])
             param_2 = self.get_parameter(position+2, param_modes[1])
-            param_3 = self.get_parameter(position+3, 1)
+            param_3 = self.get_parameter_position(position+3, param_modes[2])
 
             if param_1 < param_2:
                 self.set_value(param_3, 1)
@@ -140,13 +141,17 @@ class IntcodeComputer:
             # Equal
             param_1 = self.get_parameter(position+1, param_modes[0])
             param_2 = self.get_parameter(position+2, param_modes[1])
-            param_3 = self.get_parameter(position+3, 1)
+            param_3 = self.get_parameter_position(position+3, param_modes[2])
 
             if param_1 == param_2:
                 self.set_value(param_3, 1)
             else:
                 self.set_value(param_3, 0)
             return 4
+        elif op_code == 9:
+            param_1 = self.get_parameter(position+1, param_modes[0])
+            self.rel_base += param_1
+            return 2
         elif op_code == 99:
             # Finish
             return 99
@@ -163,17 +168,44 @@ class IntcodeComputer:
         elif mode == 1:
             # Immediate
             value = self.get_value(position)
+        elif mode == 2:
+            # Relative
+            value = self.get_value(self.get_value(position) + self.rel_base)
         else:
             print('Error: Mode %d undefined' % mode)
             return None
 
         return int(value)
 
+    def get_parameter_position(self, position, mode):
+        if mode == 0:
+            # Position
+            address = self.get_value(position)
+        elif mode == 1:
+            # Immediate
+            address = position
+        elif mode == 2:
+            # Relative
+            address = self.rel_base + self.get_value(position)
+        else:
+            print('Error: Mode %d undefined' % mode)
+            return None
+
+        return address
+
     def set_value(self, position, value):
         # print('Set Pos: %s to Val: %s' % (position, value))
+        if position >= len(self.program):
+            for _ in range(0, position - len(self.program) + 1):
+                self.program.append(0)
+
         self.program[position] = value
 
     def get_value(self, position):
+        if position >= len(self.program):
+            for _ in range(0, position - len(self.program) + 1):
+                self.program.append(0)
+
         # print('Get Pos: %s' % position)
         return self.program[position]
 
@@ -193,5 +225,6 @@ if __name__ == '__main__':
     test1_file = './test1.txt'
     test2_file = './test2.txt'
 
-    puter = IntcodeComputer(test1_file)
+    puter = IntcodeComputer(test2_file)
+    puter.set_input([1])
     puter.execute_program()
