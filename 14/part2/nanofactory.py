@@ -93,24 +93,27 @@ class Nanofactory:
 			return spares['ORE']
 
 def find_max_fuel(lower_bound, upper_bound, max_ore, factory):
-	if lower_bound >= upper_bound:
-		return lower_bound
-
 	guess = (lower_bound + upper_bound) // 2
 	ore = factory.produce_product('FUEL', guess)
 	# print('%d Fuel takes %d Ore' % (guess, ore))
 
 	if ore > max_ore:
 		# Lower the bounds
-		return find_max_fuel(lower_bound, guess-1, max_ore, factory)
+		if lower_bound >= guess-1:
+			return guess-1
+		else:
+			return find_max_fuel(lower_bound, guess, max_ore, factory)
 	elif ore < max_ore:
 		# Increase the bounds
-		return find_max_fuel(guess+1, upper_bound, max_ore, factory)
+		if upper_bound <= guess+1:
+			return guess
+		else:
+			return find_max_fuel(guess, upper_bound, max_ore, factory)
 	elif ore == max_ore:
 		return guess
 
 if __name__ == '__main__':
-	test_files = ['./test3.txt', './test4.txt', './test5.txt']
+	# test_files = ['./test3.txt', './test4.txt', './test5.txt']
 	input_file = './input.txt'
 
 	factory = Nanofactory(input_file)
