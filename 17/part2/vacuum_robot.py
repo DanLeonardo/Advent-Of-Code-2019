@@ -9,19 +9,23 @@ class ScaffoldInterface:
 		self.computer.program[0] = 2
 		self.computer.run()
 		output = self.computer.get_output_values()
-		# self.print_output(output)
+		self.print_output(output)
 		# self.save_output(output, './map.txt')
 		self.save_scaffolding(output)
 		self.find_path()
 
 		# Main Routine
-		routine_main = [ord(char) for char in 'B\n']
+		routine_main = [ord(char) for char in 'A,A,B,C,B,C,B,C,B,A\n']
+		print('Main Len %d' % len(routine_main))
 		# Function A
-		routine_A = [ord(char) for char in 'R,8,L,8,R,6\n']
+		routine_A = [ord(char) for char in 'L,10,L,8,R,8,L,8,R,6\n']
+		print('A Len %d' % len(routine_A))
 		# Function B
-		routine_B = [ord(char) for char in 'L,9,1,L,8\n']
+		routine_B = [ord(char) for char in 'R,6,R,8,R,8\n']
+		print('B Len %d' % len(routine_B))
 		# Function C
-		routine_C = [ord(char) for char in 'L,8\n']
+		routine_C = [ord(char) for char in 'R,6,R,6,L,8,L,10\n']
+		print('C Len %d' % len(routine_C))
 
 		# Main:
 		self.computer.set_input(routine_main)
@@ -83,13 +87,93 @@ class ScaffoldInterface:
 				if tile == '^':
 					cur_x, cur_y = x, y
 
-		print('%d, %d' % (cur_x, cur_y))
+		# print('%d, %d' % (cur_x, cur_y))
 		# Directions ^ v < >
 		cur_dir = '^'
+		path = []
 
+		print('Finding path from (%d, %d)' % (cur_x, cur_y))
 		while True:
-			# Walk cursor along path
-			pass
+			# Find direction to trun
+			if cur_dir == '^' or cur_dir == 'v':
+				if cur_x > 0 and self.scaffolding[cur_y][cur_x-1] == '#':
+					if cur_dir == '^':
+						# print('L')
+						path.append('L')
+						cur_dir = '<'
+					else:
+						# print('R')
+						path.append('R')
+						cur_dir = '<'
+				elif cur_x < width-1 and self.scaffolding[cur_y][cur_x+1] == '#':
+					if cur_dir == '^':
+						# print('R')
+						path.append('R')
+						cur_dir = '>'
+					else:
+						# print('L')
+						path.append('L')
+						cur_dir = '>'
+				else:
+					print('Reached the end at (%d, %d) facing %s' % (cur_x, cur_y, cur_dir))
+					break
+			elif cur_dir == '<' or cur_dir == '>':
+				if cur_y > 0 and self.scaffolding[cur_y-1][cur_x] == '#':
+					if cur_dir == '<':
+						# print('R')
+						path.append('R')
+						cur_dir = '^'
+					else:
+						# print('L')
+						path.append('L')
+						cur_dir = '^'
+				elif cur_y < height-1 and self.scaffolding[cur_y+1][cur_x] == '#':
+					if cur_dir == '<':
+						# print('L')
+						path.append('L')
+						cur_dir = 'v'
+					else:
+						# print('R')
+						path.append('R')
+						cur_dir = 'v'
+				else:
+					print('Reached the end at (%d, %d) facing %s' % (cur_x, cur_y, cur_dir))
+					break
+			else:
+				print('Error: Invalid direction %s' % cur_dir)
+
+			# Count steps until off scaffolding
+			step_x, step_y = 0, 0
+			if cur_dir == '^':
+				step_y = -1
+			elif cur_dir == 'v':
+				step_y = 1
+			elif cur_dir == '<':
+				step_x = -1
+			elif cur_dir == '>':
+				step_x = 1
+			else:
+				print('Error: Invalid direction %s' % cur_dir)
+
+			distance = 0
+			next_tile = self.scaffolding[cur_y+step_y][cur_x+step_x]
+			while next_tile != '.':
+				distance += 1
+				cur_x += step_x
+				cur_y += step_y
+				if cur_x + step_x < 0 or cur_x + step_x >= width or cur_y + step_y < 0 or cur_y + step_y >= height:
+					next_tile = None
+					break
+
+				next_tile = self.scaffolding[cur_y+step_y][cur_x+step_x]
+			# print(distance)
+			path.append(distance)
+
+		print(path)
+		with open('./path.txt', 'w') as file:
+			for step in path:
+				file.write(str(step))
+				file.write(',')
 
 	def print_output(self, output):
 		for val in output:
