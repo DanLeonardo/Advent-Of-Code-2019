@@ -1,23 +1,22 @@
 import string
+import sys
 
 class DungeonPath:
 	def __init__(self, input_str=None):
 		self.input_str = input_str
 		self.map = None
-		self.door_map = None
+		# self.door_map = None
 		self.doors = None
 		self.keys = None
+		self.tile_dist = None
 		self.entrance = None
+		self.key_cache = {}
+
+		self.read_map()
 
 	def read_map(self):
 		if self.input_str is None:
 			return
-
-		# self.map = [
-		#	[0, [1, [2,
-		# 	 3,  4,  5,
-		# 	 6], 7], 8],
-		# ]
 
 		self.map = []
 		x, y = 0, 0
@@ -38,21 +37,29 @@ class DungeonPath:
 		self.find_entrance()
 		self.find_doors()
 		self.find_keys()
+		# self.mark_tiles()
 
 	def print_map(self):
 		if self.map is None:
 			return
 
-		print('%dx%d' % (self.width, self.height))
-
-		# for row in self.map:
-		# 	for tile in row:
-		# 		print(tile, end='')
-		# 	print('\n', end='')
 		for y in range(self.height):
 			for x in range(self.width):
 				print(self.map[x][y], end='')
 			print('\n', end='')
+
+	def count_tiles(self):
+		if self.map is None:
+			return None
+
+		tile_count = 0
+		for y in range(self.height):
+			for x in range(self.width):
+				tile = self.get_tile(x, y)
+				if tile != '#':
+					tile_count += 1
+
+		return tile_count
 
 	def find_entrance(self):
 		for y in range(self.height):
@@ -60,7 +67,6 @@ class DungeonPath:
 				tile = self.get_tile(x, y)
 				if tile == '@':
 					self.entrance = (x, y)
-					return self.entrance
 
 	def find_doors(self):
 		self.doors = {}
@@ -82,14 +88,24 @@ class DungeonPath:
 		for door, pos in self.doors.items():
 			if pos == (x, y):
 				return door
-
 		return None
 
 	def get_key(self, x, y):
 		for key, pos in self.keys.items():
 			if pos == (x, y):
 				return key
+		return None
 
+	def get_door_pos(self, id):
+		for door, pos in self.doors.items():
+			if door == id:
+				return pos
+		return None
+
+	def get_key_pos(self, id):
+		for key, pos in self.keys.items():
+			if key == id:
+				return pos
 		return None
 
 	def get_tile(self, x, y):
@@ -100,139 +116,195 @@ class DungeonPath:
 
 		return self.map[x][y]
 
-	def can_reach_tile(self, x, y, keys):
-		needed_keys = self.door_map[x][y]
-		for key in needed_keys:
-			if key.lower() not in keys:
-				return False
-		return True
+	def find_path(self, start, stop):
+		if start == '@':
+			start_pos = self.entrance
+		elif start >= 'a' and start <= 'z':
+			start_pos = self.get_key_pos(start)
+		elif start >= 'A' and start <= 'Z':
+			start_pos = self.get_door_pos(start)
+		else:
+			print('Invalid start position "%s"' % start)
 
-	def found_all_keys(self, keys):
-		for key in self.keys:
-			if key not in keys:
-				return False
-		return True
+		if stop == '@':
+			stop_pos = self.entrance
+		elif stop >= 'a' and stop <= 'z':
+			stop_pos = self.get_key_pos(stop)
+		elif stop >= 'A' and stop <= 'Z':
+			stop_pos = self.get_door_pos(stop)
+		else:
+			print('Invalid stop position "%s"' % stop)
 
-	def find_closest_key(self, cur_x, cur_y, found_keys):
-		for key in self.keys:
-			key_pos = self.keys[key]
-			key_x, key_y = key_pos
-			key_doors = self.door_map[key_x][key_y]
+		# (Node Position, List of needed keys to get to node position from start)
+		nodes = [(start_pos, [])]
+		parents = [[None for y in range(self.height)] for x in range(self.width)]
 
-			if all(keys.lower() in found_keys for keys in key_doors):
-				print('yes %s' % key)
-			else:
-				print('no %s' % key)
-
-	def mark_tiles(self):
-		'''
-		Run BFS on the map starting at the entrance. Include a flag on each tile showing the doors that block the path
-		to get to that tile. Tiles with a door on them are blocked by that door.
-		door_map: 2D list where door_map[x] is a list and door_map[x][y] is a list of doors
-		'''
-		# Init door_map 
-		self.door_map = []
-		for x in range(self.width):
-			self.door_map.append([])
-			for y in range(self.height):
-				self.door_map[-1].append([])
-
-		start_node = self.entrance
-		parents = []
-		for x in range(self.width):
-			parents.append([])
-			for y in range(self.height):
-				parents[-1].append(None)
-
-		nodes = [start_node] 
 		while nodes != []:
 			node = nodes.pop(0)
-			node_x, node_y = node
-			par_node = parents[node_x][node_y]
-			# print('Marking Node (%d, %d)' % (node_x, node_y))
-			# If a door is on this tile add it to the door_map
-			on_door = self.get_door(node_x, node_y)
-			if on_door:
-				self.door_map[node_x][node_y].append(on_door)
+			node_x, node_y = node[0]
+			keys = node[1]
+
+			if node[0] == stop_pos:
+				break
 
 			# Up
-			up_node = self.get_tile(node_x, node_y-1)
-			if up_node is not None and up_node != '#':
-				up_node_x, up_node_y = node_x, node_y-1
-				if parents[up_node_x][up_node_y] is None:
-					parents[up_node_x][up_node_y] = node
-					self.door_map[up_node_x][up_node_y].extend(self.door_map[node_x][node_y])
-					nodes.append((up_node_x, up_node_y))
+			u_node = self.get_tile(node_x, node_y-1)
+			u_keys = [key for key in keys]
+			# Tile is not a wall and is not visited
+			if u_node != '#' and parents[node_x][node_y-1] is None:
+				u_door = self.get_door(node_x, node_y-1)
+				# Tile is a door and we have the key or it is not a door
+				if u_door:
+					u_keys.append(u_door.lower())
+					u_keys.sort()
+
+				parents[node_x][node_y-1] = ((node_x, node_y), u_keys)
+				nodes.append(((node_x, node_y-1), u_keys))
 
 			# Down
-			down_node = self.get_tile(node_x, node_y+1)
-			if down_node is not None and down_node != '#':
-				down_node_x, down_node_y = node_x, node_y+1
-				if parents[down_node_x][down_node_y] is None:
-					parents[down_node_x][down_node_y] = node
-					self.door_map[down_node_x][down_node_y].extend(self.door_map[node_x][node_y])
-					nodes.append((down_node_x, down_node_y))
+			d_node = self.get_tile(node_x, node_y+1)
+			d_keys = [key for key in keys]
+			# Tile is not a wall and is not visited
+			if d_node != '#' and parents[node_x][node_y+1] is None:
+				d_door = self.get_door(node_x, node_y+1)
+				# Tile is a door and we have the key or it is not a door
+				if d_door:
+					d_keys.append(d_door.lower())
+					d_keys.sort()
+
+				parents[node_x][node_y+1] = ((node_x, node_y), d_keys)
+				nodes.append(((node_x, node_y+1), d_keys))
 
 			# Left
-			left_node = self.get_tile(node_x-1, node_y)
-			if left_node is not None and left_node != '#':
-				left_node_x, left_node_y = node_x-1, node_y
-				if parents[left_node_x][left_node_y] is None:
-					parents[left_node_x][left_node_y] = node
-					self.door_map[left_node_x][left_node_y].extend(self.door_map[node_x][node_y])
-					nodes.append((left_node_x, left_node_y))
+			l_node = self.get_tile(node_x-1, node_y)
+			l_keys = [key for key in keys]
+			# Tile is not a wall and is not visited
+			if l_node != '#' and parents[node_x-1][node_y] is None:
+				l_door = self.get_door(node_x-1, node_y)
+				# Tile is a door and we have the key or it is not a door
+				if l_door:
+					l_keys.append(l_door.lower())
+					l_keys.sort()
+
+				parents[node_x-1][node_y] = ((node_x, node_y), l_keys)
+				nodes.append(((node_x-1, node_y), l_keys))
 
 			# Right
-			right_node = self.get_tile(node_x+1, node_y)
-			if right_node is not None and right_node != '#':
-				right_node_x, right_node_y = node_x+1, node_y
-				if parents[right_node_x][right_node_y] is None:
-					parents[right_node_x][right_node_y] = node
-					self.door_map[right_node_x][right_node_y].extend(self.door_map[node_x][node_y])
-					nodes.append((right_node_x, right_node_y))
+			r_node = self.get_tile(node_x+1, node_y)
+			r_keys = [key for key in keys]
+			# Tile is not a wall and is not visited
+			if r_node != '#' and parents[node_x+1][node_y] is None:
+				r_door = self.get_door(node_x+1, node_y)
+				# Tile is a door and we have the key or it is not a door
+				if r_door:
+					r_keys.append(r_door.lower())
+					r_keys.sort()
 
-		# for y in range(self.height):
-		# 	for x in range(self.width):
-		# 		if self.get_tile(x, y) in [None, '#']:
-		# 			continue
-		# 		tile = self.door_map[x][y]
-		# 		par = parents[x][y]
-		# 		if par:
-		# 			print('(%d, %d) (%d, %d): %s' % (x, y,par[0], par[1], tile))
-		# 		else:
-		# 			print('(%d, %d): %s' % (x, y, tile))		
+				parents[node_x+1][node_y] = ((node_x, node_y), r_keys)
+				nodes.append(((node_x+1, node_y), r_keys))
 
-	def find_path(self):
-		if self.input_str is None:
-			print('Error: No input provided')
-			return None
+		node = stop_pos
+		node_x, node_y = node
+		needed_keys = parents[node_x][node_y][1]
+		distance = 0
+		path = []
+		while node != start_pos:
+			distance += 1
+			path.append(node)
+			node_x, node_y = node
+			node = parents[node_x][node_y][0]
 
-		if self.map is None:
-			self.read_map()
+		# print('%d, %s' % (distance, str(needed_keys)))
 
-		# Show info of map
-		self.print_map()
-		print('Entrance at (%d, %d)' % (self.entrance[0], self.entrance[1]))
-		sorted_doors = sorted([door for door in self.doors])
-		for door in sorted_doors:
-			print('Door %s at (%d, %d)' % (door, self.doors[door][0], self.doors[door][1]))
-		sorted_keys = sorted([key for key in self.keys])
-		for key in sorted_keys:
-			print('Key %s at (%d, %d)' % (key, self.keys[key][0], self.keys[key][1]))
+		return (distance, needed_keys)
 
-		# Mark tiles with the doors blocking them
-		self.mark_tiles()
+	def find_key_distances(self):
+		self.key_dist = {}
 
-		found_keys = []
-		cur_x, cur_y = self.entrance
-		while not self.found_all_keys(found_keys):
-			break
+		points = [key for key in self.keys]
+		points.append('@')
+		points.sort()
+		
+		for start in points:
+			self.key_dist[start] = {}
+			for stop in points:
+				if start == stop:
+					continue
 
+				path = self.find_path(start, stop)
+				# self.key_dist[start].append((stop, path))
+				self.key_dist[start][stop] = path
+
+		# for point in points:
+		# 	print(point)
+		# 	for key in self.key_dist[point]:
+		# 		path = self.key_dist[point][key]
+		# 		print('\t%s, %s' % (key, str(path)))
+
+	def find_all_keys(self, start='@', found_keys=None, cur_dist=0):
+		if found_keys is None:
+			found_keys = []
+
+		found_keys.sort()
+		found_key_str = start + '-' + ''.join(found_keys)
+		# print('%s:' % found_key_str, end='\n')
+
+		# Check if we've found a better path before
+		if found_key_str in self.key_cache:
+			best_dist = self.key_cache[found_key_str]
+			if best_dist <= cur_dist:
+				return None
+			else:
+				self.key_cache[found_key_str] = cur_dist
+		else:
+			self.key_cache[found_key_str] = cur_dist
+
+		# Find needed keys
+		needed_keys = []
+		for key in self.keys:
+			if key not in found_keys:
+				needed_keys.append(key)
+		needed_keys.sort(key = lambda x: self.key_dist[start][x][0])
+
+		min_dist = None
+		for key in needed_keys:
+			path = self.key_dist[start][key]
+			dist = path[0]
+			path_keys = path[1]
+
+			can_reach = all(path_key in found_keys for path_key in path_keys)
+			if can_reach:
+				new_keys = [found_key for found_key in found_keys]
+				new_keys.append(key)
+				new_keys.sort()
+
+				total_dist = self.find_all_keys(key, new_keys, cur_dist+dist)
+				if total_dist:
+					if min_dist is None or total_dist < min_dist:
+						min_dist = total_dist
+
+		if len(needed_keys) == 0:
+			return cur_dist
+		else:
+			return min_dist
 
 if __name__ == '__main__':
 	input_file = './input.txt'
-	test1_file = './test1.txt'
-	test2_file = './test2.txt'
+	test_files = ['', './test1.txt', './test2.txt', './test3.txt', './test4.txt', './test5.txt']
 
-	path = DungeonPath(test2_file)
-	path.find_path()
+	path_file = input_file
+
+	if len(sys.argv) > 1:
+		file_num = int(sys.argv[1])
+		if file_num < 0 or file_num >= len(test_files):
+			print('No Test File %d' % file_num)
+		else:
+			path_file = test_files[file_num]
+	
+	print('Running Test File %s' % path_file)
+
+	path = DungeonPath(path_file)
+	# print(path.count_tiles())
+	path.find_key_distances()
+	distance = path.find_all_keys()
+	print(distance)
