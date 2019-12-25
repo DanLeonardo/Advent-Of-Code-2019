@@ -1,0 +1,2377 @@
+New Room:
+Hull Breach
+north: None
+south: None
+west: None
+
+
+
+== Hull Breach ==
+You got in through a hole in the floor here. To keep your ship from also freezing, the hole has been sealed.
+
+Doors here lead:
+- north
+- south
+- west
+
+Command?
+
+####################
+Current Room: Hull Breach
+Command: north
+####################
+New Room:
+Stables
+north: None
+south: None
+east: None
+Linking: Stables and Hull Breach
+
+
+
+== Stables ==
+Reindeer-sized. They're all empty.
+
+Doors here lead:
+- north
+- east
+- south
+
+Items here:
+- escape pod
+
+Command?
+
+####################
+Current Room: Stables
+Command: north
+####################
+New Room:
+Observatory
+south: None
+east: None
+west: None
+Linking: Observatory and Stables
+
+
+
+== Observatory ==
+There are a few telescopes; they're all bolted down, though.
+
+Doors here lead:
+- east
+- south
+- west
+
+Items here:
+- coin
+
+Command?
+
+####################
+Current Room: Observatory
+Command: east
+####################
+New Room:
+Hallway
+west: None
+Linking: Hallway and Observatory
+
+
+
+== Hallway ==
+This area has been optimized for something; you're just not quite sure what.
+
+Doors here lead:
+- west
+
+Items here:
+- tambourine
+
+Command?
+
+Hull Breach
+Finding directions from Hallway to Hull Breach
+####################
+Current Room: Hallway
+Command: west
+####################
+Linking: Observatory and Hallway
+
+
+
+== Observatory ==
+There are a few telescopes; they're all bolted down, though.
+
+Doors here lead:
+- east
+- south
+- west
+
+Items here:
+- coin
+
+Command?
+
+####################
+Current Room: Observatory
+Command: south
+####################
+Linking: Stables and Observatory
+
+
+
+== Stables ==
+Reindeer-sized. They're all empty.
+
+Doors here lead:
+- north
+- east
+- south
+
+Items here:
+- escape pod
+
+Command?
+
+####################
+Current Room: Stables
+Command: south
+####################
+Linking: Hull Breach and Stables
+
+
+
+== Hull Breach ==
+You got in through a hole in the floor here. To keep your ship from also freezing, the hole has been sealed.
+
+Doors here lead:
+- north
+- south
+- west
+
+Command?
+
+####################
+Current Room: Hull Breach
+Command: south
+####################
+New Room:
+Holodeck
+north: None
+west: None
+Linking: Holodeck and Hull Breach
+
+
+
+== Holodeck ==
+Someone seems to have left it on the Giant Grid setting.
+
+Doors here lead:
+- north
+- west
+
+Items here:
+- infinite loop
+
+Command?
+
+####################
+Current Room: Holodeck
+Command: west
+####################
+New Room:
+Corridor
+north: None
+east: None
+Linking: Corridor and Holodeck
+
+
+
+== Corridor ==
+The metal walls and the metal floor are slightly different colors. Or are they?
+
+Doors here lead:
+- north
+- east
+
+Command?
+
+####################
+Current Room: Corridor
+Command: north
+####################
+New Room:
+Crew Quarters
+south: None
+west: None
+Linking: Crew Quarters and Corridor
+
+
+
+== Crew Quarters ==
+The beds are all too small for you.
+
+Doors here lead:
+- south
+- west
+
+Items here:
+- fuel cell
+
+Command?
+
+####################
+Current Room: Crew Quarters
+Command: west
+####################
+New Room:
+Storage
+east: None
+Linking: Storage and Crew Quarters
+
+
+
+== Storage ==
+The boxes just contain more boxes.  Recursively.
+
+Doors here lead:
+- east
+
+Items here:
+- molten lava
+
+Command?
+
+Hull Breach
+Finding directions from Storage to Hull Breach
+####################
+Current Room: Storage
+Command: east
+####################
+Linking: Crew Quarters and Storage
+
+
+
+== Crew Quarters ==
+The beds are all too small for you.
+
+Doors here lead:
+- south
+- west
+
+Items here:
+- fuel cell
+
+Command?
+
+####################
+Current Room: Crew Quarters
+Command: south
+####################
+Linking: Corridor and Crew Quarters
+
+
+
+== Corridor ==
+The metal walls and the metal floor are slightly different colors. Or are they?
+
+Doors here lead:
+- north
+- east
+
+Command?
+
+####################
+Current Room: Corridor
+Command: east
+####################
+Linking: Holodeck and Corridor
+
+
+
+== Holodeck ==
+Someone seems to have left it on the Giant Grid setting.
+
+Doors here lead:
+- north
+- west
+
+Items here:
+- infinite loop
+
+Command?
+
+####################
+Current Room: Holodeck
+Command: north
+####################
+Linking: Hull Breach and Holodeck
+
+
+
+== Hull Breach ==
+You got in through a hole in the floor here. To keep your ship from also freezing, the hole has been sealed.
+
+Doors here lead:
+- north
+- south
+- west
+
+Command?
+
+####################
+Current Room: Hull Breach
+Command: west
+####################
+New Room:
+Kitchen
+east: None
+west: None
+Linking: Kitchen and Hull Breach
+
+
+
+== Kitchen ==
+Everything's freeze-dried.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Kitchen
+Command: west
+####################
+New Room:
+Warp Drive Maintenance
+east: None
+Linking: Warp Drive Maintenance and Kitchen
+
+
+
+== Warp Drive Maintenance ==
+It appears to be working normally.
+
+Doors here lead:
+- east
+
+Command?
+
+Hull Breach
+Stables
+Finding directions from Warp Drive Maintenance to Stables
+####################
+Current Room: Warp Drive Maintenance
+Command: east
+####################
+Linking: Kitchen and Warp Drive Maintenance
+
+
+
+== Kitchen ==
+Everything's freeze-dried.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Kitchen
+Command: east
+####################
+Linking: Hull Breach and Kitchen
+
+
+
+== Hull Breach ==
+You got in through a hole in the floor here. To keep your ship from also freezing, the hole has been sealed.
+
+Doors here lead:
+- north
+- south
+- west
+
+Command?
+
+####################
+Current Room: Hull Breach
+Command: north
+####################
+Linking: Stables and Hull Breach
+
+
+
+== Stables ==
+Reindeer-sized. They're all empty.
+
+Doors here lead:
+- north
+- east
+- south
+
+Items here:
+- escape pod
+
+Command?
+
+####################
+Current Room: Stables
+Command: east
+####################
+New Room:
+Gift Wrapping Center
+north: None
+south: None
+west: None
+Linking: Gift Wrapping Center and Stables
+
+
+
+== Gift Wrapping Center ==
+How else do you wrap presents on the go?
+
+Doors here lead:
+- north
+- south
+- west
+
+Items here:
+- candy cane
+
+Command?
+
+####################
+Current Room: Gift Wrapping Center
+Command: north
+####################
+New Room:
+Sick Bay
+south: None
+Linking: Sick Bay and Gift Wrapping Center
+
+
+
+== Sick Bay ==
+Supports both Red-Nosed Reindeer medicine and regular reindeer medicine.
+
+Doors here lead:
+- south
+
+Items here:
+- photons
+
+Command?
+
+Hull Breach
+Stables
+Observatory
+Finding directions from Sick Bay to Observatory
+####################
+Current Room: Sick Bay
+Command: south
+####################
+Linking: Gift Wrapping Center and Sick Bay
+
+
+
+== Gift Wrapping Center ==
+How else do you wrap presents on the go?
+
+Doors here lead:
+- north
+- south
+- west
+
+Items here:
+- candy cane
+
+Command?
+
+####################
+Current Room: Gift Wrapping Center
+Command: west
+####################
+Linking: Stables and Gift Wrapping Center
+
+
+
+== Stables ==
+Reindeer-sized. They're all empty.
+
+Doors here lead:
+- north
+- east
+- south
+
+Items here:
+- escape pod
+
+Command?
+
+####################
+Current Room: Stables
+Command: north
+####################
+Linking: Observatory and Stables
+
+
+
+== Observatory ==
+There are a few telescopes; they're all bolted down, though.
+
+Doors here lead:
+- east
+- south
+- west
+
+Items here:
+- coin
+
+Command?
+
+####################
+Current Room: Observatory
+Command: west
+####################
+New Room:
+Arcade
+north: None
+south: None
+east: None
+Linking: Arcade and Observatory
+
+
+
+== Arcade ==
+None of the cabinets seem to have power.
+
+Doors here lead:
+- north
+- east
+- south
+
+Items here:
+- spool of cat6
+
+Command?
+
+####################
+Current Room: Arcade
+Command: north
+####################
+New Room:
+Navigation
+south: None
+west: None
+Linking: Navigation and Arcade
+
+
+
+== Navigation ==
+Status: Stranded. Please supply measurements from fifty stars to recalibrate.
+
+Doors here lead:
+- south
+- west
+
+Items here:
+- weather machine
+
+Command?
+
+####################
+Current Room: Navigation
+Command: west
+####################
+New Room:
+Hot Chocolate Fountain
+east: None
+west: None
+Linking: Hot Chocolate Fountain and Navigation
+
+
+
+== Hot Chocolate Fountain ==
+Somehow, it's still working.
+
+Doors here lead:
+- east
+- west
+
+Items here:
+- mutex
+
+Command?
+
+####################
+Current Room: Hot Chocolate Fountain
+Command: west
+####################
+New Room:
+Security Checkpoint
+east: None
+west: None
+Linking: Security Checkpoint and Hot Chocolate Fountain
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
+
+
+
+== Pressure-Sensitive Floor ==
+Analyzing...
+
+Doors here lead:
+- east
+
+A loud, robotic voice says "Alert! Droids on this ship are heavier than the detected value!" and you are ejected back to the checkpoint.
+
+
+
+== Security Checkpoint ==
+In the next room, a pressure-sensitive floor will verify your identity.
+
+Doors here lead:
+- east
+- west
+
+Command?
+
+####################
+Current Room: Security Checkpoint
+Command: west
+####################
